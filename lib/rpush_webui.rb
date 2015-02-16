@@ -1,5 +1,11 @@
 require "rpush_webui/version"
+require 'sinatra'
+require 'rpush'
 
 module RpushWebui
-  # Your code goes here...
+  def initialize
+    get '/' do
+      Rpush::Notifications.inspect
+    end
+  end
 end

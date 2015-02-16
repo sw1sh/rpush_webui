@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = RpushWebui::VERSION
   spec.authors       = ["Nikolay Murzin"]
   spec.email         = ["murzin.nikolay@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{WebUI for Rpush}
+  spec.description   = %q{WebUI for Rpush}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency 'rpush'
-  spec.add_development_dependency 'sinatra'
+
+  spec.add_dependency 'rpush'
+  spec.add_dependency 'sinatra'
 end
