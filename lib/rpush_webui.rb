@@ -3,9 +3,11 @@ require 'sinatra'
 require 'rpush'
 
 module RpushWebui
-  def initialize
-    get '/' do
-      Rpush::Notifications.inspect
+  class Rpush::WebUI
+    def initialize
+      get '/' do
+        Rpush::Notifications.inspect
+      end
     end
   end
 end
