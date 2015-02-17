@@ -1,16 +1,20 @@
-require 'rubygems'
+require 'webui'
 require 'rpush'
 load 'config/rpush.rb'
+
+require 'rspec'
+require 'rack/test'
 require 'factory_girl'
+
 
 require_relative 'factories/notification'
 require_relative 'factories/sequences'
 require_relative 'factories/app'
 
-require_relative '../lib/models/webui'
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include Rack::Test::Methods
 
   config.raise_errors_for_deprecations!
 

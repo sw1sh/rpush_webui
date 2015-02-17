@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'rspec-mocks'
   spec.add_development_dependency "factory_girl", "~> 4.0"
+  spec.add_development_dependency 'rack-test'
 
   spec.add_dependency 'rpush'
   spec.add_dependency 'rpush-redis'
