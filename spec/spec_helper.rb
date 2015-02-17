@@ -1,20 +1,21 @@
-require 'webui'
 require 'rpush'
 load 'config/rpush.rb'
 
-require 'rspec'
+require 'rspec/core'
+require 'fakeredis'
+require 'rspec/its'
 require 'rack/test'
 require 'factory_girl'
 
-
-require_relative 'factories/notification'
-require_relative 'factories/sequences'
-require_relative 'factories/app'
-
+require 'factories/notification'
+require 'factories/sequences'
+require 'factories/app'
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Rack::Test::Methods
+
+  config.after { Redis.new.flushdb }
 
   config.raise_errors_for_deprecations!
 

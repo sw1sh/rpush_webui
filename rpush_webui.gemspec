@@ -23,10 +23,13 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'rspec-mocks'
+  spec.add_development_dependency 'rspec-its'
   spec.add_development_dependency "factory_girl", "~> 4.0"
   spec.add_development_dependency 'rack-test'
+  spec.add_development_dependency 'fakeredis'
 
   spec.add_dependency 'rpush'
   spec.add_dependency 'rpush-redis'
   spec.add_dependency 'sinatra'
+  spec.add_dependency 'slim'
 end
