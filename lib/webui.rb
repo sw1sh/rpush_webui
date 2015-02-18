@@ -16,3 +16,4 @@ get '/data/:start_at/:finish_at/:to' do
   notifications = Notifications.new dt: dt, start_at: start_at, finish_at: finish_at 
   json notifications.data
 end
+
