@@ -31,5 +31,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rpush'
   spec.add_dependency 'rpush-redis'
   spec.add_dependency 'sinatra'
+  spec.add_dependency 'sinatra-contrib'
   spec.add_dependency 'slim'
 end

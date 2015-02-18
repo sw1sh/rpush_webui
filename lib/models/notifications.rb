@@ -9,16 +9,21 @@ end
 
 class Notifications
   
-  def initialize(from, dt)
-    @from = from
-    @dt = dt
+  def initialize(**options)
+    @dt = options[:dt]
+    @start_at = options[:start_at]
+    @finish_at = options[:finish_at]
     @notifications = Rpush::Notification.all
   end
   
   def data
     fetch = -> a { a['delivered'] ? [true, a['delivered_at']] : [false, a['failed_at']] }
-    @notifications.map(&:attributes).map(&fetch).sort_by(&:last)
-      .group_by { |_,d| (d.to_i - @from.to_i) / @dt.to_i }.map_value { |g| {true => 0, false => 0}.merge g.group_by(&:first).map_value(&:size) }
+    @notifications
+      .map(&:attributes)
+      .map(&fetch)
+      .select { |_,d| d.to_i >= @start_at.to_i && d.to_i <= @finish_at.to_i }
+      .group_by { |_,d| (d.to_i - @start_at.to_i) / @dt.to_i }
+      .map_value { |g| {true => 0, false => 0}.merge g.group_by(&:first).map_value(&:size) }
   end
 
  end
