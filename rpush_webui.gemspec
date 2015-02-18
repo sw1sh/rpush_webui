@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Nikolay Murzin"]
   spec.email         = ["murzin.nikolay@gmail.com"]
   spec.summary       = %q{WebUI for Rpush}
-  spec.description   = %q{WebUI for Rpush}
-  spec.homepage      = ""
+  spec.description   = %q{Plots of push notifications.}
+  spec.homepage      = "http://github.com/sw1sh/rpush_webui"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -21,16 +21,16 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
 
-  spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'rspec-mocks'
-  spec.add_development_dependency 'rspec-its'
+  spec.add_development_dependency 'rspec', '~> 3.2'
+  spec.add_development_dependency 'rspec-mocks', '~> 3.2'
+  spec.add_development_dependency 'rspec-its', '~> 1.1'
   spec.add_development_dependency "factory_girl", "~> 4.0"
-  spec.add_development_dependency 'rack-test'
-  spec.add_development_dependency 'fakeredis'
+  spec.add_development_dependency 'rack-test', '~> 0.6'
+  spec.add_development_dependency 'fakeredis', '~> 0.5'
 
-  spec.add_dependency 'rpush'
-  spec.add_dependency 'rpush-redis'
-  spec.add_dependency 'sinatra'
-  spec.add_dependency 'sinatra-contrib'
-  spec.add_dependency 'slim'
+  spec.add_dependency 'rpush', '~> 2.3'
+  spec.add_dependency 'rpush-redis', '~> 0.4'
+  spec.add_dependency 'sinatra', '~> 1.4'
+  spec.add_dependency 'sinatra-contrib', '~> 1.4'
+  spec.add_dependency 'slim', '~> 3.0'
 end
