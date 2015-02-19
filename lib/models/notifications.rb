@@ -1,5 +1,5 @@
 require 'rpush'
-load 'config/rpush.rb'
+require_relative '../../config/rpush'
 
 class Hash
   def map_value
@@ -18,10 +18,10 @@ class Notifications
   
   def data
     fetch = -> a { a['delivered'] ? [true, a['delivered_at']] : [false, a['failed_at']] }
-    @notifications
-      .map(&:attributes)
+    @notifications.map(&:attributes)
       .map(&fetch)
       .select { |_,d| d.to_i >= @start_at.to_i && d.to_i <= @finish_at.to_i }
+      .sort_by(&:last)
       .group_by { |_,d| (d.to_i - @start_at.to_i) / @dt.to_i }
       .map_value { |g| {true => 0, false => 0}.merge g.group_by(&:first).map_value(&:size) }
   end
