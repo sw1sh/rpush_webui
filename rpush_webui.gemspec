@@ -31,6 +31,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rack-test', '~> 0.6'
   spec.add_development_dependency 'fakeredis', '~> 0.5'
 
+  spec.add_dependency 'rails'
   spec.add_dependency 'rpush', '~> 2.3'
   spec.add_dependency 'rpush-redis', '~> 0.4'
   spec.add_dependency 'sinatra', '~> 1.4'
