@@ -3,7 +3,7 @@ require 'sinatra'
 require 'sinatra/json'
 require_relative 'models/notifications'
 
-set :host, @config['webui_host']
+set :bind, @config['webui_host']
 set :port, @config['webui_port']
 
 get '/' do
