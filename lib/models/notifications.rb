@@ -1,8 +1,8 @@
 require 'rpush'
 require 'yaml'
 
-config = YAML.load_file('config/rpush_webui.yml')
-require config['rpush_config_file']
+@config = YAML.load_file('config/rpush_webui.yml')
+require @config['rpush_config_file']
 
 class Hash
   def map_value

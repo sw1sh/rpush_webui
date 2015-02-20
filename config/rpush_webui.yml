@@ -1,1 +1,3 @@
 rpush_config_file: './config/rpush.rb'
+webui_host: 'localhost'
+webui_port: 8081
