@@ -4,6 +4,11 @@ require 'yaml'
 @config = YAML.load_file('config/rpush_webui.yml')
 require @config['rpush_config_file']
 
+if Rpush.config.client == :active_record
+  ActiveRecord::Base.configurations = YAML.load_file 'config/database.yml'
+  ActiveRecord::Base.establish_connection 
+end 
+
 class Hash
   def map_value
     self.map { |k,v| {k => yield(v)} }.reduce(:merge)
