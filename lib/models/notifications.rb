@@ -21,12 +21,14 @@ class Notifications
     @dt = options[:dt]
     @start_at = options[:start_at]
     @finish_at = options[:finish_at]
-    @notifications = Rpush::Notification.all
   end
   
   def data
     fetch = -> a { a['delivered'] ? [true, a['delivered_at']] : [false, a['failed_at']] }
-    @notifications.map(&:attributes)
+    Rpush::Notification
+      .where('delivered_at between ? and ? or failed_at between ? and ?', @start_at, @finish_at, @start_at, @finish_at)
+      .load
+      .map(&:attributes)
       .map(&fetch)
       .select { |_,d| d.to_i >= @start_at.to_i && d.to_i <= @finish_at.to_i }
       .sort_by(&:last)
